@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-7w01kb_d&gcb&@owyieo^@z0olvb7ws4dy&#%_vj+t020u)utc
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -37,15 +37,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework',
-    'corsheaders',
-    'App.apps.AppConfig'
+    # 'App.apps.AppConfig',
+    'App'
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware'
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -60,7 +58,7 @@ ROOT_URLCONF = 'Jakbeut.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -81,12 +79,12 @@ WSGI_APPLICATION = 'Jakbeut.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'djongo',
-        'CLIENT': {
-            "host": "mongodb+srv://Mizwar_Zulfachri:1234@cluster0.79qme.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
-            ,"name":"Jakbeut",
-            "authMechanism": "SCRAM-SHA-1" #Atlas connection
-        }
+            'ENGINE': 'djongo',
+            'NAME': 'Jakbeut',
+            'ENFORCE_SCHEMA': False,
+            'CLIENT': {
+                'host': 'mongodb+srv://Mizwar_Zulfachri:1234@cluster0.79qme.mongodb.net/test'
+            } 
     }
 }
 
@@ -131,3 +129,7 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]

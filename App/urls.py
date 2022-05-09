@@ -1,7 +1,11 @@
 from django.urls import path
-from App import views
 
-urlspatterns=[
-    path('user/',views.userApi),
-    path('user/<int:id>/',views.userApi)
+from . import views
+
+app_name = 'Jakbeut'
+
+urlpatterns = [
+    path('', views.index, name='index'),
+    path('login/', views.login, name='login'),
+    # path('detail/<slug:slug>/', views.detail_blog, name='detail'),S
 ]
