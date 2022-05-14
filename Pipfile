@@ -12,6 +12,7 @@ django = "==4.0.3"
 djongo = "==1.3.6"
 dnspython = "==2.2.1"
 sqlparse = "==0.2.4"
+channels = "*"
 
 [dev-packages]
 

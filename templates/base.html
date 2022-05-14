@@ -16,13 +16,13 @@
     
     <nav class="navbar">
         <div class="logo">
-            <img src="{% static 'images/LOGO.svg' %}" alt="logo" href="index.html">
+            <img src="{% static 'images/LOGO.svg' %}" alt="logo" href="#" />
         </div>
 
         <input type="checkbox" id="checkbox_toggle">
         <label for="checkbox" class="toggle">&#9776;</label>
         <div class="top-menu">
-            <li><a href="#">Ceramah</a></li>
+            <li><a href="{% url 'view_ceramah' %}">Ceramah</a></li>
             <li><a href="#">Ngaji</a></li>
             <li><a href="#">QnA</a></li>
             <li><a href="#">Komunitas</a></li>
@@ -31,7 +31,7 @@
 
         <div class="group">
             <button type="button" class="Register">Register</button>
-            <button type="button" class="Signin">Sign In</button>
+            <button type="button" class="Signin" href="{% url 'view_login' %}">Sign In</button>
         </div>
         
     </nav>

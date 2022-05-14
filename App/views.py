@@ -1,10 +1,13 @@
 from django.shortcuts import render
+from django.views.decorators.csrf import csrf_exempt
+# from rest_frameworks.parsers import JSONParser
+# from django.http.response import JSONResponse
 from django.http import HttpResponse
 
 # Create your views here.
 
-# from django.http import HttpResponse
-from .models import User
+from App.models import User, Ceramah
+from App.serializers import UserSerializer, CeramahSerializer
 
 
 def index(request):
@@ -17,6 +20,13 @@ def login(request):
         'login': login,
     }
     return render(request, 'login.html', context)
+
+def ceramah(request):
+    ceramah = Ceramah.objects.all()
+    context = {
+        'ceramah': ceramah,
+    }
+    return render(request, 'ceramah.html', context)
 
 
 #def detail_blog(request, slug):

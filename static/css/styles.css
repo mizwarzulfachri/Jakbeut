@@ -80,6 +80,41 @@ li {
     transition: 0.3s ease;
 }
 
+input[type="checkbox"] {
+    display: none;
+}
+.toggle {
+    display: none;
+    font-size: 24px;
+    user-select: none;
+}
+
+@media (max-width: 1066px) {
+    .top-menu {
+        display: none;
+        position: absolute;
+        background-color: white;
+        right: 0;
+        left: 0;
+        text-align: center;
+        padding: 16px 0;
+    }
+    .top-menu:hover {
+        display: inline-block;
+        background-color: #3C64B1;
+        transition : 0.3s ease;
+    }
+    .top-menu li + li {
+        margin-top: 12px;
+    }
+    .input[type="checkbox"]:checked ~ .top-menu{
+        display: block;
+    }
+    .toggle {
+        display: block;
+    }
+}
+
 /* Slider halaman index */
 .slider {
     width: 1440px;
@@ -103,8 +138,9 @@ li {
 }
 
 .pic img {
-    width: 1440px;
-    height: 822px;
+    max-width: 100%;
+    height: auto;
+    background-size: cover;
 }
 
 /* manual nav*/
