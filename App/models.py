@@ -20,8 +20,8 @@ class Ceramah(models.Model):
     Deskripsi = models.CharField(max_length=800)
     Tanggal = models.DateField(null=False)
     Waktu = models.TimeField(null=False)
-    Images = models.CharField(max_length=250)
-    Link = models.CharField(max_length=100)
+    Images = models.ImageField(upload_to = 'static/images/')
+    Link = models.URLField()
 
     def _str_(self):
         return self.Judul

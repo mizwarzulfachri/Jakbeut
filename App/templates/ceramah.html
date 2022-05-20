@@ -4,16 +4,26 @@
 {% block content %}
     <div class="list-ceramah">
         {% for ceramah in ceramah %}
-        <div class="event">
-            <img src="{% static 'images/Ceramah 1.png' %}" alt="{{ ceramah.}}" />
+        <div class="card mb-3" style="max-width: auto;">
+            <div class="row g-0">
+              {% if ceramah.Images %}
+              <div class="col-md-4">
+                <img src="{{ ceramah.Images.url }}" class="img-fluid rounded-start" alt="...">
+              </div>
+              {% endif %}
+    
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h2 class="card-title">{{ ceramah.Judul|title }}</h2>
+                  <h5><p class="card-text">{{ ceramah.Deskripsi }}</p></h5>
+                  <p class="card-text"><small class="text-muted">Mulai: {{ ceramah.Waktu }} {{ ceramah.Tanggal }}</small></p>
+
+                  <button type="button">Join</button>
+                </div>
+              </div>
+            </div>
         </div>
-        
-        <h1>{{ ceramah.Judul }}</h1>
-        <h1>{{ ceramah.Images }}</h1>
-        <h2>{{ ceramah.Deskripsi }}</h2>
-        <h2>{{ ceramah.Waktu }}</h2>
-        <h2>{{ ceramah.Links }}</h2>
+    
         {% endfor %}
     </div>
-
 {% endblock %}
